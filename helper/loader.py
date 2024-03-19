@@ -30,7 +30,7 @@ def build_image_set(file_path, channels=1, scale=1, convert_ycbcr=True, resampli
     input_image = util.resize_image_by_pil(true_image, 1.0 / scale, resampling_method=resampling_method)
     input_interpolated_image = util.resize_image_by_pil(input_image, scale, resampling_method=resampling_method)
 
-    return input_image, input_interpolated_image, true_image
+    return input_image, input_interpolated_image, np.array(true_image)
 
 
 def load_input_image(filename, width=0, height=0, channels=1, scale=1, alignment=0, convert_ycbcr=True,

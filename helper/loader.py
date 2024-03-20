@@ -9,7 +9,7 @@ import configparser
 import logging
 import os
 import random
-
+import imageio
 import numpy as np
 from scipy import misc
 
@@ -254,15 +254,15 @@ class BatchDataSets:
                 np.multiply(self.true_images[number], scale)
 
     def load_input_batch_image(self, image_number):
-        image = misc.imread(self.batch_dir + "/" + INPUT_IMAGE_DIR + "/%06d.bmp" % image_number)
+        image = imageio.imread(self.batch_dir + "/" + INPUT_IMAGE_DIR + "/%06d.bmp" % image_number)
         return image.reshape(image.shape[0], image.shape[1], 1)
 
     def load_interpolated_batch_image(self, image_number):
-        image = misc.imread(self.batch_dir + "/" + INTERPOLATED_IMAGE_DIR + "/%06d.bmp" % image_number)
+        image = imageio.imread(self.batch_dir + "/" + INTERPOLATED_IMAGE_DIR + "/%06d.bmp" % image_number)
         return image.reshape(image.shape[0], image.shape[1], 1)
 
     def load_true_batch_image(self, image_number):
-        image = misc.imread(self.batch_dir + "/" + TRUE_IMAGE_DIR + "/%06d.bmp" % image_number)
+        image = imageio.imread(self.batch_dir + "/" + TRUE_IMAGE_DIR + "/%06d.bmp" % image_number)
         return image.reshape(image.shape[0], image.shape[1], 1)
 
     def save_input_batch_image(self, image_number, image):
